@@ -19,10 +19,17 @@ app.get('/v1/explorers', (req, res) => {
 })
 
 app.get('/v1/explorers/:id', (req, res) => {
-      console.log(`Api Explorers GET request ${new Date()}`)
+      console.log(`Api explorers GET request ${new Date()}`)
       console.log(`Getting explorer with id ${req.params.id}`)
       const explorer = {id: 117, name: "John"}
       res.status(200).json(explorer)
+})
+
+app.post('/v1/explorers', (req, res) => {
+      console.log(`Api explorers POST request ${new Date()}`)
+      //Agregando la logica para persistir
+      const requestBody = req.body //*? Parámetros de un cliente
+      res.status(201).json({message: "Created"})
 })
 
 //* Inicializamos la app
